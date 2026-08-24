@@ -1,0 +1,105 @@
+$molecule
+0 1
+C -1.293251 1.270970 0.000000
+C 0.032066 0.824049 0.000000
+C 0.294115 -0.568710 0.000000
+C -0.781038 -1.473582 0.000000
+C -2.086523 -1.025436 0.000000
+C -2.330627 0.354621 0.000000
+O 1.019570 1.730158 0.000000
+C 1.660600 -1.058238 0.000000
+O 2.655089 -0.337865 0.000000
+H -3.352319 0.715847 0.000000
+H -0.564373 -2.536711 0.000000
+H -2.911047 -1.726098 0.000000
+H -1.480360 2.337035 0.000000
+H 1.782954 -2.156428 0.000000
+H 1.894815 1.229515 -0.000000
+$end
+
+$rem
+!JOBTYPE               = OPT
+NEO                   = true
+CNEO                  = true
+SYM_IGNORE            = true
+INPUT_BOHR            = false
+MEM_TOTAL = 70000
+BASIS                 = mixed
+METHOD                = B3LYP
+neo_epc               = epc172
+SCF_CONVERGENCE       = 9
+max_scf_cycles        = 2000
+NEO_N_SCF_CONVERGENCE = 9
+NEO_E_CONV            = 9
+BASIS_LIN_DEP_THRESH = 8
+NEO_BASIS_LIN_DEP_THRESH = 8
+neo_basis             = mixed
+NEO_VPP               = 0
+NEO_TDKS              = true
+NEO_SIMULTANEOUS_SCF  = true
+NEO_PURECART = 1111
+$end
+
+$basis
+C 1
+cc-pvdz
+****
+C 2
+cc-pvdz
+****
+C 3
+cc-pvdz
+****
+C 4
+cc-pvdz
+****
+C 5
+cc-pvdz
+****
+C 6
+cc-pvdz
+****
+O 7
+cc-pvdz
+****
+C 8
+cc-pvdz
+****
+O 9
+cc-pvdz
+****
+H 10
+cc-pvdz
+****
+H 11
+cc-pvdz
+****
+H 12
+cc-pvdz
+****
+H 13
+cc-pvdz
+****
+H 14
+cc-pvdz
+****
+H 15
+cc-pvdz
+****
+$end
+
+$neo_basis
+H    15
+PB4-F2
+****
+$end
+
+$neo_tdks
+METHOD  = Ehrenfest
+update_nuclei_every_n = 10
+DT      = 0.04
+MAXITER = 30000
+ELECTRONIC_HOMO_TO_LUMO = true
+nick = true
+tpb = true
+$end

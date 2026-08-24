@@ -1,0 +1,3 @@
+This is a multi-thread run using 16 threads per process
+/scratch/gpfs/SHS/nb2617/nb2617/project/qchem/exe/qcprog.exe .nick_CNH.in.627371.qcin.1 /scratch/gpfs/SHS/nb2617/nb2617/scratch/qchem627371/
+/scratch/gpfs/SHS/nb2617/nb2617/project/qchem/exe/qcprog.exe .nick_CNH.in.627371.qcin.2 /scratch/gpfs/SHS/nb2617/nb2617/scratch/qchem627371/

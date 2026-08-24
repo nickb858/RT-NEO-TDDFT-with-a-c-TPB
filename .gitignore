@@ -1,0 +1,4 @@
+# Large Q-Chem output files (>50 MB) — store separately (e.g. Zenodo)
+OHBA/Fig2/ohba_tpb.out
+OHBA/Fig2/ohba_otpb.out
+BPOH2/Fig4/BPOH2_TPB5.out

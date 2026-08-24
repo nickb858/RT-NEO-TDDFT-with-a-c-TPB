@@ -1,0 +1,3 @@
+This is a multi-thread run using 20 threads per process
+/scratch/gpfs/SHS/nb2617/nb2617/project/qchem/exe/qcprog.exe .tau_COOHH.in.4141855.qcin.1 /scratch/gpfs/SHS/nb2617/nb2617/scratch/qchem4141855/
+/scratch/gpfs/SHS/nb2617/nb2617/project/qchem/exe/qcprog.exe .tau_COOHH.in.4141855.qcin.2 /scratch/gpfs/SHS/nb2617/nb2617/scratch/qchem4141855/
