@@ -7,7 +7,7 @@ orbital TDDFT (RT-NEO-TDDFT).
 The paper compares c-TPB against the original TPB (o-TPB) and the Fixed Proton Basis (FPB) for
 two systems:
 - **OHBA** — o-hydroxybenzaldehyde (intramolecular proton transfer)
-- **BPOH2** — [2,2$'$-bipyridyl]-3,3$'$-diol (double intramolecular proton transfer)
+- **BPOH2** — \[2,2'-bipyridyl\]-3,3'-diol (double intramolecular proton transfer)
 
 Vibrational frequencies are benchmarked for single- and multi-proton molecules (H₂, H₂O, H₂CO,
 HCOOH, HCN, HNC, FHF⁻) against VPT2 references.
