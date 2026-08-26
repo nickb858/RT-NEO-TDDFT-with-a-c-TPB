@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
@@ -7,6 +8,7 @@ from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
 mpl.rcParams['font.family'] = 'Arial'
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ANGSTROM_TO_AU = 1.8897259886
 
 
@@ -61,17 +63,11 @@ def parse_basis_centers(filename):
 
     return np.array(gx), np.array(gy)
 
-file1 = "ohba_fpb.out"
+file1 = os.path.join(SCRIPT_DIR, "ohba_fpb.out")
 # === Parse data ===
-fpb_x, fpb_y = parse_proton_traj(
-    file1
-)
-ctpb_x, ctpb_y = parse_proton_traj(
-    "ohba_ctpb.out"
-)
-gh_x, gh_y = parse_basis_centers(
-    file1
-)
+fpb_x, fpb_y = parse_proton_traj(file1)
+ctpb_x, ctpb_y = parse_proton_traj(os.path.join(SCRIPT_DIR, "ohba_ctpb.out"))
+gh_x, gh_y = parse_basis_centers(file1)
 
 print(f"Basis centers ({len(gh_x)}):")
 for x, y in zip(gh_x, gh_y):
@@ -144,9 +140,7 @@ legend_handles = [
 legend = ax.legend(handles=legend_handles, fontsize=24, loc="upper right")
 
 # Molecule image inset (lower-left, white margins cropped)
-mol_img = mpimg.imread(
-    os.path.join(os.path.dirname(os.path.abspath(__file__)), "molecule.png")
-)
+mol_img = mpimg.imread(os.path.join(SCRIPT_DIR, "molecule.png"))
 h, w = mol_img.shape[:2]
 mol_img = mol_img[int(h * 0.03):int(h * 0.97), int(w * 0.03):int(w * 0.97)]
 axins = ax.inset_axes([0.01, 0.01, 0.25, 0.25])

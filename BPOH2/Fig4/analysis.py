@@ -65,9 +65,6 @@ def distance(block, idx1, idx2):
     return np.linalg.norm(a - b)
 
 
-files = ["BPOH2_ctpb.out"]
-names = ["c-TPB"]
-
 # Timestep in fs: nuclear update every 10 electronic steps × dt=0.1 a.u.
 dt = 0.0242 * 10 * 0.1
 
@@ -75,18 +72,28 @@ dt = 0.0242 * 10 * 0.1
 # 22 classical atoms + proton 0 + proton 1 = index 24
 proton_idx = 24
 
+DATA_FILE = os.path.join(SCRIPT_DIR, "BPOH2_ctpb_distances.csv")
+OUT_FILE  = os.path.join(SCRIPT_DIR, "BPOH2_ctpb.out")
+
+if os.path.exists(DATA_FILE):
+    data = np.loadtxt(DATA_FILE, delimiter=",", skiprows=1)
+    d_donor    = data[:, 0]
+    d_acceptor = data[:, 1]
+else:
+    # Atom 11: O donor; atom 12: N acceptor; atom 24: quantum proton 1
+    blocks = parse_xyz_blocks(OUT_FILE)[:-1][:3000]
+    d_donor    = np.array([distance(block, 11, proton_idx) for block in blocks])
+    d_acceptor = np.array([distance(block, 12, proton_idx) for block in blocks])
+    np.savetxt(DATA_FILE, np.column_stack([d_donor, d_acceptor]),
+               delimiter=",", header="d_donor_A,d_acceptor_A", comments="")
+    print(f"Saved distances to {DATA_FILE}")
+
+times = np.arange(len(d_donor)) * dt
+
 plt.figure(figsize=(11, 8))
 
-for i, (file, label) in enumerate(zip(files, names)):
-    blocks = parse_xyz_blocks(os.path.join(SCRIPT_DIR, file))[:-1][:3000]
-    times = np.arange(len(blocks)) * dt
-
-    # Atom 11: O donor; atom 12: N acceptor; atom 24: quantum proton 1
-    d_donor    = [distance(block, 11, proton_idx) for block in blocks]
-    d_acceptor = [distance(block, 12, proton_idx) for block in blocks]
-
-    plt.plot(times, d_donor,    lw=4, color="blue", label=f"Donor {label}")
-    plt.plot(times, d_acceptor, lw=4, color="red",  label=f"Acceptor {label}")
+plt.plot(times, d_donor,    lw=4, color="blue", label="Donor c-TPB")
+plt.plot(times, d_acceptor, lw=4, color="red",  label="Acceptor c-TPB")
 
 plt.text(0.02, 0.06, r"O$_{\rm D}$—H", color="blue", fontsize=36,
          transform=plt.gca().transAxes)
