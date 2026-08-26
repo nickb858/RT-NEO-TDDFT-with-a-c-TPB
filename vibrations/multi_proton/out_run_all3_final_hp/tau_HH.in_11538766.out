@@ -1,4 +1,0 @@
-This is a multi-thread run using 20 threads per process
-/scratch/gpfs/SHS/nb2617/nb2617/project/qchem/exe/qcprog.exe .tau_HH.in.2968686.qcin.1 /scratch/gpfs/SHS/nb2617/nb2617/scratch/qchem2968686/
-/scratch/gpfs/SHS/nb2617/nb2617/project/qchem/exe/qcprog.exe .tau_HH.in.2968686.qcin.2 /scratch/gpfs/SHS/nb2617/nb2617/scratch/qchem2968686/
-Error: in the serial run

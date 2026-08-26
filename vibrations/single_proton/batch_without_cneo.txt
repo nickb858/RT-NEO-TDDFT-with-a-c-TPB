@@ -1,0 +1,11 @@
+# molecule  method  refs (cm^-1)
+# NCH: ctpb vs otpb
+# Without CNEO
+single_proton/without_cneo/ctpb_NCH.in.out  760.16,2175.73,3327.84
+single_proton/without_cneo/otpb_NCH.in.out   760.16,2175.73,3327.84
+# CNH: ctpb vs otpb
+single_proton/without_cneo/ctpb_CNH.in.out  457.16,2067.85,3625.56
+single_proton/without_cneo/otpb_CNH.in.out   457.16,2067.85,3625.56
+# FFH: ctpb vs otpb
+single_proton/without_cneo/ctpb_FFH.in.out  592.28,1350.77,1720.57
+single_proton/without_cneo/otpb_FFH.in.out   592.28,1350.77,1720.57

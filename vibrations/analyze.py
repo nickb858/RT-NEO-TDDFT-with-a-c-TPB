@@ -16,7 +16,6 @@ Batch file format (one job per line, # = comment):
 
 Options:
   --refs F1,F2,...       Reference frequencies in cm^-1 (comma-separated)
-  --quantum-atoms A,...  1-based atom indices treated as quantum nuclei (default: 1)
   --window W             Ref-matching search window in cm^-1 (default: 300)
   --timestep DT          Output frame spacing in a.u. (default: 4.0)
   --sigma S              Padé damping constant in a.u. (default: 1e8)
@@ -24,8 +23,9 @@ Options:
   --w-step DS            Padé frequency step in a.u. (default: 1e-6 ≈ 0.22 cm^-1)
   --save-spectra         Write per-file <name>.spectrum.dat
   --plot                 Save per-file <name>.spectrum.png
+  --csv                  Write csv file <name>.csv
 """
-#python analyze.py --batch batch_multi.txt --window 2000 --csv multi.csv 
+#python analyze.py --batch batch.txt --window 2000 --csv multi.csv
 import numpy as np
 import re
 import os
@@ -190,6 +190,7 @@ def parse_output(infile, quantum_atoms=None, timestep=DEFAULT_TIMESTEP):
                 idx = int(m.group(1))
                 #print(idx)
                 sym = m.group(2)
+                #### This is where Adjustments 4 and 5 are made with and idx != 1 ####
                 if sym in ZMAP : #and idx != #
                     x = float(m.group(3)) * ANGSTROM_TO_AU
                     y = float(m.group(4)) * ANGSTROM_TO_AU
@@ -547,9 +548,9 @@ def _print_summary(all_results):
 # ── CSV export ───────────────────────────────────────────────────────────────
 
 def _parse_name(filepath):
-    """Extract method and molecule from filenames like nick_NCH.in.out."""
+    """Extract method and molecule from filenames like ctpb_NCH.in.out."""
     base = os.path.basename(filepath)
-    # strip extensions: nick_NCH.in.out → nick_NCH
+    # strip extensions: ctpb_NCH.in.out → ctpb_NCH
     stem = base.split(".")[0]
     parts = stem.split("_", 1)
     if len(parts) == 2:

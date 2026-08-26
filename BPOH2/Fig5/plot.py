@@ -22,7 +22,7 @@ def load_series(filename):
     return data
 
 
-filenames = ["nick.txt"]
+filenames = ["ctpb.txt"]
 names = ["c-TPB"]
 
 # Electronic timestep in a.u. for the c-TPB BPOH2 simulation

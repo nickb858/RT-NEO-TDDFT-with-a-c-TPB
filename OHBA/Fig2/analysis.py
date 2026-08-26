@@ -1,9 +1,11 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 
 mpl.rcParams['font.family'] = 'Arial'
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ANGSTROM_TO_BOHR = 1.8897259886
 
 
@@ -69,7 +71,7 @@ for i, (file, label) in enumerate(zip(files, names)):
     if file == "ohba_fpb.out":
         dt *= 10  # FPB uses DT=0.4 a.u. vs 0.04 a.u. for c-TPB/Original TPB
 
-    blocks = parse_xyz_blocks(file)[:-1][:3000]
+    blocks = parse_xyz_blocks(os.path.join(SCRIPT_DIR, file))[:-1][:3000]
 
     # 1-based index of the appended quantum proton position in each frame.
     # FPB has 3 additional ghost atoms, pushing the proton to index 19.

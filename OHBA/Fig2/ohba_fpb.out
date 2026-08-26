@@ -237,7 +237,7 @@ update_nuclei_every_n = 10
 DT      = 0.4
 MAXITER = 3000
 ELECTRONIC_HOMO_TO_LUMO = true
-nick = false
+ctpb = false
 tpb = false
 $end
 --------------------------------------------------------------

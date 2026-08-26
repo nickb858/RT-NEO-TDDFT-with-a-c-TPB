@@ -1,9 +1,11 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 
 mpl.rcParams['font.family'] = 'Arial'
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ANGSTROM_TO_BOHR = 1.8897259886
 
 
@@ -63,7 +65,7 @@ def distance(block, idx1, idx2):
     return np.linalg.norm(a - b)
 
 
-files = ["BPOH2_TPB5.out"]
+files = ["BPOH2_ctpb.out"]
 names = ["c-TPB"]
 
 # Timestep in fs: nuclear update every 10 electronic steps × dt=0.1 a.u.
@@ -76,7 +78,7 @@ proton_idx = 24
 plt.figure(figsize=(11, 8))
 
 for i, (file, label) in enumerate(zip(files, names)):
-    blocks = parse_xyz_blocks(file)[:-1][:3000]
+    blocks = parse_xyz_blocks(os.path.join(SCRIPT_DIR, file))[:-1][:3000]
     times = np.arange(len(blocks)) * dt
 
     # Atom 11: O donor; atom 12: N acceptor; atom 24: quantum proton 1

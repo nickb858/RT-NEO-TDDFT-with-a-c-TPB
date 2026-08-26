@@ -1,0 +1,12 @@
+# ── H2 (HH) — quantum-atoms 1,2 ─────────────────────────────────────────────
+multi_proton/outputs/ctpb_HH.in.out   4114.43
+#multi_proton/outputs/otpb_HH.in.out    4114.43
+# ── H2O (OHH) — quantum-atoms 2,3 ───────────────────────────────────────────
+multi_proton/outputs/ctpb_OHH.in.out  1604.48,3644.27,3697.18
+#multi_proton/outputs/otpb_OHH.in.out   1604.48,3644.27,3697.18
+# ── H2CO (OCHH) — quantum-atoms 3,4 ─────────────────────────────────────────
+multi_proton/outputs/ctpb_OCHH.in.out  1187.65,1247.25,1517.22,1798.49,2739.48,2749.10
+multi_proton/outputs/otpb_OCHH.in.out   1187.65,1247.25,1517.22,1798.49,2739.48,2749.10
+# ── HCOOH (COOHH) — quantum-atoms 4,5 ───────────────────────────────────────
+multi_proton/outputs/ctpb_COOHH.in.out 625.59,638.37,1034.39,1111.48,1252.96,1394.18,1802.29,2906.30,3508.67
+multi_proton/outputs/otpb_COOHH.in.out  625.59,638.37,1034.39,1111.48,1252.96,1394.18,1802.29,2906.30,3508.67
