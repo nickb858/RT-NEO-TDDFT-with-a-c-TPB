@@ -1,7 +1,7 @@
 # RT-NEO-TDDFT with c-TPB
 
 Scripts and Q-Chem input/output files for reproducing the figures and tables in the manuscript
-describing the **corrected Traveling Proton Basis (c-TPB)** method for real-time nuclear-electronic
+describing the **constrained Traveling Proton Basis (c-TPB)** method for real-time nuclear-electronic
 orbital TDDFT (RT-NEO-TDDFT).
 
 The paper compares c-TPB against the original TPB (o-TPB) and the Fixed Proton Basis (FPB) for
