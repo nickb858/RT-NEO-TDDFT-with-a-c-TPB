@@ -65,6 +65,6 @@ MAXITER = 30000
 ELECTRONIC_HOMO_TO_LUMO = true
 hartree_product = true
 damp_nick = 0.0025
-nick = true
+ctpb = true
 tpb = true
 $end
